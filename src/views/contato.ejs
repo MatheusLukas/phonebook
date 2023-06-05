@@ -1,0 +1,45 @@
+
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+  <body>
+    <section style="display: flex; justify-content: center; flex-direction: column;" class="container">
+      <div>
+        <h1 style="font-size: 100px; text-align: center;" class="my-4">Contato</h1>
+        <p style="font-size: 30px; text-align: center;">Adicione / Edite seu contato</p>
+        <%-include("includes/messages")%>
+      </div>
+        <%if(contato.id) {%>
+      <form action="/contato/edit/<%=contato.id%>" method="post">
+        <%} else {%>
+          <form action="/contato/register" method="post">
+        <%} %>
+        <input type="hidden" name="_csrf" value=<%= csrfToken%>>
+        <div class="mb-3">
+          <label class="form-label">Nome</label>
+          <input value="<%= contato.nome %>" type="text" class="form-control" name="nome">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Sobrenome</label>
+          <input value="<%= contato.sobrenome %>" type="text" class="form-control" name="sobrenome">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input value="<%= contato.email %>" type="email" class="form-control" name="email">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Telefone</label>
+          <input value="<%= contato.telefone %>" type="tel" class="form-control" name="telefone">
+        </div>
+        
+       
+        
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </form>
+
+       
+          
+        </div>
+
+    </section>
+  </body>
+</html>

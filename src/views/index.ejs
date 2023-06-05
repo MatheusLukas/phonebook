@@ -1,0 +1,35 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+  <body>
+    <section style="display: flex; justify-content: center; flex-direction: column;" class="container">
+      <div>
+        <h1 style="font-size: 100px; text-align: center;" class="my-4">Agenda</h1>
+        <p style="font-size: 30px; text-align: center;">Contatos abaixo:</p>
+        <%-include("includes/messages")%>
+      </div>
+        
+
+        <div>
+          <%if(contatos.length > 0) {%>
+          <div class="responsive-table">
+            <table class="table my-5">
+                <% contatos.forEach(contato => {%>
+              <tr>
+                <td><%= contato.nome %></td>
+                <td><%= contato.sobrenome %></td>
+                <td><%= contato.telefone %></td>
+                <td><%= contato.email %></td>
+                <td><a href="/contato/index/<%=contato.id%>">Editar</a></td>
+                <td><a class="text-danger" href="/contato/delete/<%=contato.id%>">Excluir</a></td>
+              </tr>
+                  <%  });%>
+            </table>
+          </div>
+          <%}else{%>
+            <p class="text-center lead">Sem contatos cadastrados</p>
+            <%}%>
+        </div>
+
+    </section>
+  </body>
+</html>

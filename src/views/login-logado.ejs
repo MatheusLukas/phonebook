@@ -1,0 +1,19 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+  <body>
+    <section style="display: flex; justify-content: center; flex-direction: column;" class="container">
+      <div>
+        <h1 style="font-size: 50px; text-align: center;" class="my-4">Olá <%= user.email%></h1>
+        <p style="font-size: 30px; text-align: center;">Você precisa sair para criar outra conta</p>
+
+     
+
+      </div>
+      <%- include('includes/messages') %> 
+
+
+
+    </section>
+  </body>
+</html>

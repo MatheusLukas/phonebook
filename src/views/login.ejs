@@ -1,0 +1,59 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+  <body>
+    <section style="display: flex; justify-content: center; flex-direction: column;" class="container">
+      <div>
+        <h1 style="font-size: 100px; text-align: center;" class="my-4">Cadastrar / Logar</h1>
+        <p style="font-size: 30px; text-align: center;">Realize o login ou crie sua conta abaixo</p>
+
+     
+
+      </div>
+      <%- include('includes/messages') %> 
+
+        <div style="display: flex; flex-direction: row; justify-content: space-around;" class="my-5">
+          <div>
+            <h4 style="text-align: center;">Crie sua conta</h4>
+
+            <form action="/login/register" method="post">
+              <input type="hidden" name="_csrf" value=<%= csrfToken%>>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" name="email">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Senha</label>
+                <input type="password" class="form-control" name="password">
+              </div>
+             
+              
+              <button type="submit" class="btn btn-primary">Criar Conta</button>
+            </form>
+
+          </div>
+
+          <div>
+            <h4 style="text-align: center;">Faça seu Login</h4>
+
+            <form action="/login/login" method="post">
+              <input type="hidden" name="_csrf" value="<%= csrfToken%>">
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" name="email">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Senha</label>
+                <input type="password" class="form-control" name="password">
+              </div>
+             
+              
+              <button type="submit" class="btn btn-primary">Logar</button>
+            </form>
+
+          </div>
+        </div>
+
+    </section>
+  </body>
+</html>
